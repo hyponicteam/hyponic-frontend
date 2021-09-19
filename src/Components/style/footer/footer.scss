@@ -1,0 +1,23 @@
+.footer {
+  width: 80%;
+  height: 10vh;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #eaeaea;
+  border-top: 2px solid black;
+  padding: 15px 0px;
+  .footer-left {
+    flex: 1;
+    .footer-left__copyright {
+      text-align: start;
+    }
+  }
+  .footer-right {
+    flex: 1;
+    .footer-right__privacyTerms {
+      text-align: center;
+    }
+  }
+}

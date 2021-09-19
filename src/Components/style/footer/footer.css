@@ -1,0 +1,39 @@
+.footer {
+  width: 80%;
+  height: 10vh;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #eaeaea;
+  border-top: 2px solid black;
+  padding: 15px 0px;
+}
+
+.footer .footer-left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.footer .footer-left .footer-left__copyright {
+  text-align: start;
+}
+
+.footer .footer-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.footer .footer-right .footer-right__privacyTerms {
+  text-align: center;
+}
+/*# sourceMappingURL=footer.css.map */
