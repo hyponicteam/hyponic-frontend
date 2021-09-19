@@ -1,5 +1,5 @@
 .footer {
-  width: 80%;
+  width: 75%;
   height: 10vh;
   margin: auto;
   display: -webkit-box;
@@ -12,9 +12,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: #eaeaea;
-  border-top: 2px solid black;
-  padding: 15px 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .footer .footer-left {
@@ -24,7 +24,7 @@
 }
 
 .footer .footer-left .footer-left__copyright {
-  text-align: start;
+  padding-left: 50px;
 }
 
 .footer .footer-right {

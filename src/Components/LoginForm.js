@@ -12,12 +12,12 @@ function LoginForm() {
       <div className="loginForm-right">
         <div className="right-card">
           <div className="right-card__inputLogin">
-            <input type="text" />
-            <input type="text" />
+            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="Password" />
           </div>
           <div className="right-card__submitLogin">
-            <input type="submit" value="Masuk" />
-            <input type="submit" value="Daftar" />
+            <input type="submit" value="Masuk" className="darkSubmit" />
+            <input type="submit" value="Daftar" className="transparantSubmit" />
           </div>
         </div>
       </div>

@@ -1,17 +1,15 @@
 .footer {
-  width: 80%;
+  width: 75%;
   height: 10vh;
   margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: #eaeaea;
-  border-top: 2px solid black;
-  padding: 15px 0px;
+  align-items: center;
   .footer-left {
     flex: 1;
     .footer-left__copyright {
-      text-align: start;
+      padding-left: 50px;
     }
   }
   .footer-right {

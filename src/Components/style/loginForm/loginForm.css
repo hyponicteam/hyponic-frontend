@@ -1,6 +1,7 @@
 .loginForm {
   width: 80%;
   margin: auto;
+  line-height: 1.2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,6 +21,10 @@
           flex: 1;
 }
 
+.loginForm .loginForm-left h2 {
+  font-size: 3em;
+}
+
 .loginForm .loginForm-right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -27,11 +32,11 @@
 }
 
 .loginForm .loginForm-right .right-card {
-  width: 70%;
-  height: 300px;
+  width: 100%;
+  height: 400px;
   background-color: #145d45;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,11 +51,56 @@
           align-items: center;
 }
 
+.loginForm .loginForm-right .right-card .right-card__inputLogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 20px;
+}
+
 .loginForm .loginForm-right .right-card .right-card__inputLogin input {
-  display: block;
+  width: 350px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+  outline: none;
+}
+
+.loginForm .loginForm-right .right-card .right-card__submitLogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: -60px;
 }
 
 .loginForm .loginForm-right .right-card .right-card__submitLogin input {
-  display: block;
+  width: 350px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.loginForm .loginForm-right .right-card .right-card__submitLogin input.darkSubmit {
+  background-color: #000;
+  color: #fff;
+}
+
+.loginForm .loginForm-right .right-card .right-card__submitLogin input.transparantSubmit {
+  background: none;
+  border: 1px solid #000;
+  color: #fff;
 }
 /*# sourceMappingURL=loginForm.css.map */
