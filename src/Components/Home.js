@@ -1,14 +1,14 @@
 import React from "react";
+import Daily_Home from "./Daily_Home";
+import Header from "./Header";
+import Nav from "./Nav";
 
 const Home = () => {
   return (
     <div>
-      <h1>Selamat Datang di Home</h1>
-      <ul>
-        <li>Home</li>
-        <li>Daily Activity</li>
-        <li>Tutorial</li>
-      </ul>
+      <Nav />
+      <Header />
+      <Daily_Home />
     </div>
   );
 };

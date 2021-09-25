@@ -1,0 +1,14 @@
+.daily-home-container {
+  width: 80%;
+  margin: 50px auto;
+
+  .daily-home-cards-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .daily-home-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

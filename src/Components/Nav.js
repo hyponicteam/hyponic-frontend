@@ -1,19 +1,22 @@
+import "./style/Nav/nav.css";
+
 function Nav() {
   return (
-    <div>
-      <div className="logo">
-        <h3>Hyponic</h3>
-      </div>
-      <div className="list-Nav">
-        <ul>
-          <li>Home</li>
-          <li>Daily Activity</li>
-          <li>Tutorial</li>
+    <div className="nav">
+      <div className="nav-container">
+        <div className="logo">
+          <img className="logo-icon" src="https://source.unsplash.com/random/50x50" alt="" />
+          <h4 className="logo-title">Hyponic</h4>
+        </div>
+        <ul className="nav-list">
+          <li className="nav-list-item underline">Home</li>
+          <li className="nav-list-item">Daily Activity</li>
+          <li className="nav-list-item">Tutorial</li>
         </ul>
-      </div>
-      <div className="profile-nav">
-        <span className="circle-profile"></span>
-        <h4>Maskurnia shidi</h4>
+        <div className="profile-nav">
+          <img className="notification-icon" src="https://source.unsplash.com/random/30x30" alt="" />
+          <img className="profile-icon" src="https://source.unsplash.com/random/40x40" alt="" />
+        </div>
       </div>
     </div>
   );
