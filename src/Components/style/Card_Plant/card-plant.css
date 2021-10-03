@@ -54,5 +54,10 @@
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 2px 2px rgba(223, 218, 218, 0.5);
           box-shadow: 1px 1px 2px 2px rgba(223, 218, 218, 0.5);
+  cursor: pointer;
+}
+
+.card-plant .card-plant-button:hover {
+  background-color: #054941;
 }
 /*# sourceMappingURL=card-plant.css.map */

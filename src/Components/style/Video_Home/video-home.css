@@ -1,0 +1,19 @@
+.video-home-container {
+  width: 80%;
+  margin: auto;
+}
+
+.video-home-container .video-home-cards-title {
+  font-size: 24px;
+}
+
+.video-home-container .video-home-cards {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  gap: 30px 0px;
+}
+/*# sourceMappingURL=video-home.css.map */

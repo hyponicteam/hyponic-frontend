@@ -14,9 +14,12 @@
 
 .nav {
   box-shadow: 4px 0px 4px 0px rgba($color: #000000, $alpha: 0.25);
+  background-color: #fff;
   height: 70px;
   width: 100%;
   font-family: "Poppins", sans-serif;
+  position: sticky;
+  top: 0;
 }
 
 .nav-container {

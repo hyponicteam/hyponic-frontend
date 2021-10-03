@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CAWb;;AAbD,AAGE,qBAHmB,CAGnB,uBAAuB,CAAC;EACtB,SAAS,EAAE,IAAI;CAChB;;AALH,AAME,qBANmB,CAMnB,iBAAiB,CAAC;EAChB,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,GAAG,EAAE,QAAQ;CACd",
+    "sources": [
+        "video-home.scss"
+    ],
+    "names": [],
+    "file": "video-home.css"
+}

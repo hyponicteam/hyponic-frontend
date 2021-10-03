@@ -15,9 +15,13 @@
 .nav {
   -webkit-box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.25);
           box-shadow: 4px 0px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
   height: 70px;
   width: 100%;
   font-family: "Poppins", sans-serif;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .nav-container {
