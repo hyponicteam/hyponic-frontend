@@ -1,59 +1,26 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-// import Register from "./Components/Register";
-import Register from "./Components/Register";
-import Login from "./Components/Login";
-import Home from "./Components/Home";
 import React from "react";
-import { createContext, useContext, useReducer } from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { APP_ROUTE } from "./routes";
+import PrivateRoute from "./route/PrivateRoute";
+import PublicRoute from "./route/PublicRoute";
 
-//Context
-export const AuthContext = createContext();
+export const history = createBrowserHistory();
 
-//inisialisasi
-const initialState = {
-  isAuthenticated: false,
-  user: null,
-  token: null,
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "LOGIN":
-      localStorage.setItem("user", JSON.stringify(action.payload.data.user.email));
-      localStorage.setItem("token", JSON.stringify(action.payload.data.access_token));
-      return {
-        ...state,
-        isAuthenticated: true,
-        user: action.payload.user,
-        token: action.payload.token,
-      };
-
-    case "LOGOUT":
-      localStorage.clear();
-      return {
-        ...state,
-        isAuthenticated: false,
-        user: null,
-      };
-    default:
-      return state;
-  }
-};
-
-function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
-        <AuthContext.Provider value={{ state, dispatch }}>
-          <Route exact path="/" component={Login} />
-          {/* <Route exact path="/Register" component={Register} /> */}
-          <Route exact path="/Register" component={Register} />
-          <Route exact path="/Home" component={Home} />
-        </AuthContext.Provider>
+        {APP_ROUTE.map((value, index) => {
+          if (value.private) {
+            return <PrivateRoute key={value.name} component={value.component} path={value.path} exact={value.exact} />;
+          } else {
+            return <PublicRoute key={value.name} restricted={value.restricted} path={value.path} component={value.component} exact={value.exact} />;
+          }
+        })}
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
-}
+};
 
 export default App;

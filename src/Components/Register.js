@@ -15,23 +15,19 @@ const ZoomIn = Styled.div`
 `;
 
 const Register = (props) => {
-  //memanggil context
-  const { dispatch } = useContext(AuthContext);
-
-  //initial state
+  //inisialisasi state
   const initialState = {
     name: "",
     email: "",
     password: "",
     password_confirmation: "",
-    isSubmitting: false,
     errorMessage: null,
   };
 
-  //bikin data use state
+  //bikin data, dan set data
   const [data, setData] = useState(initialState);
 
-  //fungsi input handle change
+  //handle input change
   const handleInputChange = (event) => {
     setData({
       ...data,
@@ -44,7 +40,6 @@ const Register = (props) => {
     event.preventDefault();
     setData({
       ...data,
-      isSubmitting: true,
       errorMessage: null,
     });
 
@@ -68,7 +63,6 @@ const Register = (props) => {
       if (res.data.meta.code === 200) {
         setData({
           ...data,
-          isSubmitting: false,
         });
 
         // //redirect ke dashboard - vid2
@@ -77,7 +71,6 @@ const Register = (props) => {
       } else {
         setData({
           ...data,
-          isSubmitting: false,
           //mengambil data dari api dan ditampung
           errorMessage: res.meta.message,
         });
@@ -86,6 +79,7 @@ const Register = (props) => {
       throw res;
     });
   };
+
   return (
     <div className="container">
       <div className="left-container">
@@ -129,7 +123,7 @@ const Register = (props) => {
               </div>
               {data.errorMessage && <p>{data.errorMessage}</p>}
               <button className="btn-join" disabled={data.isSubmitting}>
-                {data.isSubmitting ? "...loading" : "Gabung Sekarang"}
+                Gabung sekarang
               </button>
             </form>
           </div>

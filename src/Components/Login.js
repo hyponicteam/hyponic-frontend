@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
-import React, { useContext, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import React from "react";
 import "./style/Login/login.css";
 import Logo from "./img/logo.png";
 import Styled, { keyframes } from "styled-components";
 import { zoomIn } from "react-animations";
-import { AuthContext } from "../App";
+import { login } from "../utils/auth";
 import axios from "axios";
 const qs = require("querystring");
 const api = "http://192.168.196.12:8000/api/auth/login";
@@ -14,68 +14,42 @@ const ZoomIn = Styled.div`
 `;
 
 const Login = (props) => {
-  //panggil context
-  const { dispatch } = useContext(AuthContext);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [error, setError] = React.useState(false);
+  const history = useHistory();
 
-  //initial state
-  const initialState = {
-    email: "",
-    password: "",
-    isSubmitting: false,
-    errorMessage: null,
-  };
+  React.useEffect(() => {
+    if (email || password) {
+      setError(false);
+    }
+    return () => {};
+  }, [email, password]);
 
-  //bikin data use state
-  const [data, setData] = useState(initialState);
-
-  //ngehandle fungsi change inputan
-  const handleInputChange = (event) => {
-    setData({
-      ...data,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleFormSubmit = (event) => {
+  const _onSubmit = (event) => {
     event.preventDefault();
-    setData({
-      ...data,
-      isSubmitting: true,
-      errorMessage: null,
-    });
-
-    //request dari body api untuk ngambil email dan password
+    console.log(email);
     const requestBody = {
-      email: data.email,
-      password: data.password,
+      email: email,
+      password: password,
     };
 
-    //konfigurasi header
     const config = {
       headers: {
         Accept: "application/json",
       },
     };
 
-    //panggil axios
     axios.post(api, qs.stringify(requestBody), config).then((res) => {
       if (res.data.meta.code === 200) {
-        dispatch({
-          type: "LOGIN",
-          //ngambil data dari api dan ditampung di payload
-          payload: res.data,
+        login({
+          email: email,
+          token: res.data.data.access_token,
         });
-        props.history.push("/Home");
+        props.history.push("/dashboard");
       } else {
-        setData({
-          ...data,
-          isSubmitting: false,
-          //ngambil error message ketika gagal
-          errorMessage: "login gagal",
-        });
-        console.log(res);
+        setError(true);
       }
-      throw res;
     });
   };
 
@@ -83,9 +57,7 @@ const Login = (props) => {
     <div className="container">
       <div className="left-container">
         <img src={Logo} alt="" />
-        <Link className="link link-logo" to={"/Home"}>
-          Hyponic
-        </Link>
+        <p className="link link-logo">Hyponic</p>
         <h2>Masuk Sekarang</h2>
         <p>Masuk Hyponic sekarang juga untuk mendapatkan hasil panen tanaman hidroponik yang memuaskan</p>
         <h4>Belum punya akun ?</h4>
@@ -97,10 +69,10 @@ const Login = (props) => {
         <ZoomIn>
           <div className="register-form">
             <h2>Masuk Akun</h2>
-            <form onSubmit={handleFormSubmit}>
+            <form onSubmit={_onSubmit}>
               <div className="input-form">
                 <label for="name">Email</label>
-                <input className="input" type="text" name="email" id="email" onChange={handleInputChange} value={data.email} />
+                <input className="input" type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className="input-form">
                 <div className="label-pass">
@@ -109,7 +81,7 @@ const Login = (props) => {
                   </label>
                   <p>Lupa kata sandi ?</p>
                 </div>
-                <input className="input" type="password" name="password" id="password" onChange={handleInputChange} value={data.password} />
+                <input className="input" type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
               <div className="check">
                 <input className="input-checkbox" type="checkbox" name="check-privacy" id="input-checkbox" />
@@ -117,9 +89,8 @@ const Login = (props) => {
                   Saya setuju dengan <span>kebijakan privasi layanan.</span>
                 </label>
               </div>
-              {data.errorMessage && <p>{data.errorMessage}</p>}
-              <button className="btn-join" disabled={data.isSubmitting}>
-                {data.isSubmitting ? "...loading" : "Masuk Sekarang"}
+              <button className="btn-join" type="submit">
+                Masuk
               </button>
             </form>
           </div>
