@@ -1,6 +1,11 @@
 import "./style/Nav/nav.css";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../App";
 
 function Nav() {
+  //manggil context
+  const { state, dispatch } = useContext(AuthContext);
+
   return (
     <div className="nav">
       <div className="nav-container">
@@ -16,6 +21,7 @@ function Nav() {
         <div className="profile-nav">
           <img className="notification-icon" src="https://source.unsplash.com/random/30x30" alt="" />
           <img className="profile-icon" src="https://source.unsplash.com/random/40x40" alt="" />
+          <button onClick={() => dispatch({ type: "LOGOUT" })}>Logout</button>
         </div>
       </div>
     </div>
