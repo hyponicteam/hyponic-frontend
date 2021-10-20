@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,uBAAuB,CAAC;EACtB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;CAWb;;AAbD,AAGE,uBAHqB,CAGrB,yBAAyB,CAAC;EACxB,SAAS,EAAE,IAAI;CAChB;;AALH,AAME,uBANqB,CAMrB,mBAAmB,CAAC;EAClB,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,GAAG,EAAE,QAAQ;CACd",
+    "sources": [
+        "article-home.scss"
+    ],
+    "names": [],
+    "file": "article-home.css"
+}

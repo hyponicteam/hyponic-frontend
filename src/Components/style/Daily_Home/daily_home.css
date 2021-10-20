@@ -1,0 +1,17 @@
+.daily-home-container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.daily-home-container .daily-home-cards-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.daily-home-container .daily-home-cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[];
+      grid-template-columns: repeat(4, 1fr);
+}
+/*# sourceMappingURL=daily_home.css.map */
