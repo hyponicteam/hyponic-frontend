@@ -1,0 +1,54 @@
+.tabel-plant {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.tabel-plant .Tittle {
+    border-bottom: 1px solid #dddddd;
+}
+.tabel-plant .plant-Name {
+    padding: 12px 15px;
+}
+
+.tabel-plant .Tittle:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.tabel-plant .Tittle:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.tabel-plant .Tittle.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.tabel-plant .plant-button {
+width: 120px;
+  height: 40px;
+  background-color: #02897a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 2px 2px rgba(223, 218, 218, 0.5);
+          box-shadow: 1px 1px 2px 2px rgba(223, 218, 218, 0.5);
+  cursor: pointer;
+}
+
+e.tabel-plant .plant-button:hovr{
+    background-color: #054941;
+}
