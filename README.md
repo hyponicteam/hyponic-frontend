@@ -35,3 +35,12 @@ menu dashboard, dimana menu ini terdapat beberapa konten didalamnya. diantaranya
 3. Crud Data perkembangan Tanaman
 4. Pertumbuhan tercepat Tanaman
 5. Insight Data Tanaman
+### Review Sprint 2
+- Menambahkan Design/Icon pada Tampilan astetika agar lebih menarik
+- Mengubah Insight Tanaman yang awalnya dalam bentuk tabel menjadi ke dalam bentuk cart Grafik Diagram
+### Deskripsi Sprint Planning Sprint 3 
+- Memperbaiki Tampilan Estetica UI
+- Mengubah Data Insight Tanaman menjadi cart Grafik Diagram
+- mengubah Daftar Tanaman yg semula berbentuk Tabel menjadi sebuah Card
+- Memperbaiki Fitur Tutorial
+- Membuat Halaman Akun
