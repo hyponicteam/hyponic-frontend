@@ -29,7 +29,7 @@ menu register, dimana user harus register terlebih dahulu jika belum punya akun.
 #### 3. menu dashboard
 menu dashboard, dimana menu ini terdapat beberapa konten didalamnya. diantaranya, list daily activity yang sedang berjalan (masih data dummy. belum nembak api, karena belum jadi),list tutorial terbaru (data udah dari api), list video terbaru (data udah dari api). dimenu dashboard ini, user tidak bisa kembali ke menu login/register apabila belum logout.
 ### Deskripsi fitur MVP sprint 2
-#### Pantau Tanaman
+#### - Pantau Tanaman
 1. Menampilkan Tabel Daftar Tanaman pada Halaman Home Pantau Tanaman
 2. Crud input Nama Tanaman Yang akan di buat
 3. Crud Data perkembangan Tanaman
