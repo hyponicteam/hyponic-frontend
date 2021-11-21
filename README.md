@@ -43,4 +43,4 @@ menu dashboard, dimana menu ini terdapat beberapa konten didalamnya. diantaranya
 - Mengubah Data Insight Tanaman menjadi cart Grafik Diagram
 - mengubah Daftar Tanaman yg semula berbentuk Tabel menjadi sebuah Card
 - Memperbaiki Fitur Tutorial
-- Membuat Halaman Akun
+- Membuat Halaman Profile Akun
