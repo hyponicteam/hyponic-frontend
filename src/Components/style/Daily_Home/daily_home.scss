@@ -8,7 +8,20 @@
   }
 
   .daily-home-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    .table-plant {
+      display: flex;
+      flex-direction: column;
+      .table-head,
+      .table-content {
+        border: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 30px;
+        .btn-pantau {
+          padding: 5px 20px;
+        }
+      }
+    }
   }
 }

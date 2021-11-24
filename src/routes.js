@@ -9,6 +9,13 @@
 import Login from "./Components/Login";
 import Dashboard from "./Components/Dashboard";
 import Register from "./Components/Register";
+import Tanamanku from "./Components/Tanamanku";
+import Tanaman from "./Components/Tanaman";
+import Pantau from "./Components/Pantau";
+import TambahTanaman from "./Components/TambahTanaman";
+import PantauEdit from "./Components/PantauEdit";
+import EditTanaman from "./Components/EditTanaman";
+import Profile from "./Components/Profile";
 
 export const APP_ROUTE = [
   {
@@ -30,6 +37,55 @@ export const APP_ROUTE = [
     path: "/dashboard",
     exact: true,
     component: Dashboard,
+    private: true,
+  },
+  {
+    name: "Tanamanku",
+    path: "/Tanamanku",
+    exact: true,
+    component: Tanamanku,
+    private: true,
+  },
+  {
+    name: "Tanaman",
+    path: "/Tanaman/:id",
+    exact: true,
+    component: Tanaman,
+    private: true,
+  },
+  {
+    name: "Pantau",
+    path: "/Pantau/:id",
+    exact: true,
+    component: Pantau,
+    private: true,
+  },
+  {
+    name: "TambahTanaman",
+    path: "/TambahTanaman",
+    exact: true,
+    component: TambahTanaman,
+    private: true,
+  },
+  {
+    name: "PantauEdit",
+    path: "/PantauEdit/:id",
+    exact: true,
+    component: PantauEdit,
+    private: true,
+  },
+  {
+    name: "EditTanaman",
+    path: "/EditTanaman/:id",
+    exact: true,
+    component: EditTanaman,
+    private: true,
+  },
+  {
+    name: "Profile",
+    path: "/Profile",
+    exact: true,
+    component: Profile,
     private: true,
   },
 ];
