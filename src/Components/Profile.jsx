@@ -8,7 +8,9 @@ function Profile() {
     <div className="profile-page">
       <Nav className="nav-profile" />
       <div className="profile-container">
-        <div className="circle-img">1</div>
+        <div className="circle-img">
+          <img className="img-profile-circle" src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1613385371/attached_image/ini-tanda-dan-cara-untuk-berhenti-menjadi-people-pleaser.jpg" alt="profile" />
+        </div>
         <div className="form-profile">
           <div className="input-field-profile">
             <label htmlFor="" className="label-profile">

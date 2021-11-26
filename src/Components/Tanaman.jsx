@@ -15,8 +15,10 @@ const api2 = "http://192.168.196.12:8088/api/top-plants?category=leaf_width&n=1"
 const qs = require("querystring");
 const Tanaman = (_) => {
   const [data, setData] = useState([]);
-  const [chartData, setChartData] = useState([]);
+  const [chartData, setChartData] = useState("");
   const { state } = useLocation();
+  const [labels, setLabels] = useState([]);
+  const [height, setHeight] = useState([]);
   console.log("data tanamanku tanam : " + state.plants);
 
   useEffect(() => {
@@ -31,6 +33,24 @@ const Tanaman = (_) => {
       setData(responseData);
       console.log(data);
       const x = responseData;
+
+      //ambil tanggal
+      let labelsDate = [];
+      x.forEach((element) => {
+        labelsDate.push(element.created_at);
+      });
+      console.log("data tanggal : " + labelsDate);
+      setLabels(labelsDate);
+
+      //ambil data chart
+      let dataChartHeight = [];
+      x.forEach((element) => {
+        dataChartHeight.push(element.plant_height);
+      });
+      console.log("data tinggi : " + dataChartHeight);
+      setHeight(dataChartHeight);
+
+      //ambil chartdata
       let chartData = [];
       x.forEach((element) => {
         chartData.push({
@@ -101,6 +121,7 @@ const Tanaman = (_) => {
                 <th style={{ paddingLeft: "100px" }}>Aksi</th>
               </tr>
             </thead>
+
             {Object.keys(data).map((item, i) => (
               <tbody>
                 <tr>
@@ -134,9 +155,34 @@ const Tanaman = (_) => {
         </div>
         <Chart />
         <div className="chart">
-          {Object.keys(chartData).map((n, index) => {
-            <Line key={index} data={n} />;
-          })}
+          {/* {Object.keys(data).map((n, index) => {
+            <Line key={index} data={{}} />;
+          })} */}
+          <Line
+            options={{
+              responsive: true,
+              plugins: {
+                legend: {
+                  position: "top",
+                },
+                title: {
+                  display: true,
+                  text: "Tinggi Tanaman",
+                },
+              },
+            }}
+            data={{
+              labels: labels,
+              datasets: [
+                {
+                  label: "Tinggi Tanaman",
+                  data: height,
+                  borderColor: "rgb(255, 99, 132)",
+                  backgroundColor: "rgba(255, 99, 132, 0.5)",
+                },
+              ],
+            }}
+          />
         </div>
         <Link className="link link-pantau" to={{ pathname: `/Pantau/${state.plants}`, state: { plants: state.plants } }}>
           Pantau
