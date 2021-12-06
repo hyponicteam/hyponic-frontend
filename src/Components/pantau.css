@@ -1,0 +1,68 @@
+.pantau-form-container {
+  width: 60%;
+  margin: 0px auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.pantau-form {
+  width: 100%;
+}
+
+.pantau-form-card {
+  background: rgba(41, 255, 198, 0.55);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 100px;
+}
+
+.input-tanam {
+  border: none;
+  border-bottom: 1px solid black;
+  padding: 5px 10px;
+  outline: none;
+  background: transparent;
+}
+
+.form-tanam-field {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+.h2-pantau,
+.p-pantau {
+  margin-bottom: 20px;
+}
+
+.p-pantau {
+}
+
+.btn-tanam {
+  display: flex;
+  flex-direction: row;
+}
+
+.link-pantau-tanam {
+  margin-right: 20px;
+  background: #145d45;
+  border-radius: 10px;
+  padding: 5px 20px;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+}
+
+.btn-close-modal {
+  background: #145d45;
+  border-radius: 10px;
+  padding: 5px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.modal-pantau{
+  
+}

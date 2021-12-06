@@ -54,12 +54,10 @@
       height: 70px;
       display: flex;
       align-items: center;
-    }
-
-    .underline {
-      border-bottom: 2px solid #145d45;
-      font-weight: bolder;
-      color: #145d45;
+      .link-nav {
+        text-decoration: none;
+        color: #000000;
+      }
     }
 
     .nav-list-item:hover {

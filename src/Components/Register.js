@@ -8,7 +8,7 @@ import { zoomIn } from "react-animations";
 import { AuthContext } from "../App";
 import axios from "axios";
 const qs = require("querystring");
-const api = "http://192.168.196.12:8000/api/auth/register";
+const api = "http://192.168.196.12:8088/api/auth/register";
 
 const ZoomIn = Styled.div`
   animation: 1.5s ${keyframes`${zoomIn}`};

@@ -1,0 +1,54 @@
+.profile-page {
+  width: 100%;
+}
+
+.profile-page .nav-profile {
+  margin-bottom: 100px;
+}
+
+.profile-container {
+  padding: 30px 0px;
+  width: 40%;
+  background: salmon;
+  margin: 0px auto;
+  background: #ffffff;
+  border: 1px solid #2b332c;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.profile-container .circle-img {
+}
+
+.profile-page .profile-container .cirle-img img {
+  width: 50px;
+  height: auto;
+}
+
+.profile-container .form-profile {
+  width: 60%;
+  height: 250px;
+  margin: 0px auto;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-profile .input-field-profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-field-profile .label-profile {
+}
+
+.input-field-profile .input-profile {
+}
+
+.form-profile .btn.btn-update-profile {
+  width: 100%;
+  padding: 5px;
+  background-color: salmon;
+}
