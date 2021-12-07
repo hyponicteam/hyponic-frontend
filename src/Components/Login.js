@@ -7,7 +7,7 @@ import { zoomIn } from "react-animations";
 import { login } from "../utils/auth";
 import axios from "axios";
 const qs = require("querystring");
-const api = "http://192.168.196.12:8088/api/auth/login";
+const api = "http://192.168.196.12:8000/api/auth/login";
 
 const ZoomIn = Styled.div`
   animation: 1.5s ${keyframes`${zoomIn}`};
@@ -69,7 +69,7 @@ const Login = (props) => {
         <ZoomIn>
           <div className="register-form">
             <h2>Masuk Akun</h2>
-            <form onSubmit={_onSubmit}>
+            <form>
               <div className="input-form">
                 <label for="name">Email</label>
                 <input className="input" type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -89,7 +89,7 @@ const Login = (props) => {
                   Saya setuju dengan <span>kebijakan privasi layanan.</span>
                 </label>
               </div>
-              <button className="btn-join" type="submit">
+              <button onClick={_onSubmit} className="btn-join" type="submit">
                 Masuk
               </button>
             </form>

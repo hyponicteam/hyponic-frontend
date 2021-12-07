@@ -20,27 +20,3 @@ In the project directory, you can run:
 2. jika pendaftaran berhasil, maka akan muncul alert berhasil daftar
 3. jika pendaftaran gagal/tidak muncul alert berhasil, silahkan hubungi no wa 07861130080. karena komputer server harus menyalakan xampp agar aplikasi bisa tersambung ke api.
 4. silahkan login, dan akan masuk ke home jika berhasil login
-
-### Deskripsi fitur MVP sprint 1
-#### 1. menu login
-menu login, dimana user harus login terlebih dahulu untuk bisa masuk ke menu dashboard. jika belum punya akun, dipersilahkan untuk register terlebih dahulu.
-#### 2. menu register
-menu register, dimana user harus register terlebih dahulu jika belum punya akun.
-#### 3. menu dashboard
-menu dashboard, dimana menu ini terdapat beberapa konten didalamnya. diantaranya, list daily activity yang sedang berjalan (masih data dummy. belum nembak api, karena belum jadi),list tutorial terbaru (data udah dari api), list video terbaru (data udah dari api). dimenu dashboard ini, user tidak bisa kembali ke menu login/register apabila belum logout.
-### Deskripsi fitur MVP sprint 2
-#### - Pantau Tanaman
-1. Menampilkan Tabel Daftar Tanaman pada Halaman Home Pantau Tanaman
-2. Crud input Nama Tanaman Yang akan di buat
-3. Crud Data perkembangan Tanaman
-4. Pertumbuhan tercepat Tanaman
-5. Insight Data Tanaman
-### Review Sprint 2
-- Menambahkan Design/Icon pada Tampilan astetika agar lebih menarik
-- Mengubah Insight Tanaman yang awalnya dalam bentuk tabel menjadi ke dalam bentuk cart Grafik Diagram
-### Deskripsi Sprint Planning Sprint 3 
-- Memperbaiki Tampilan Estetica UI
-- Mengubah Data Insight Tanaman menjadi cart Grafik Diagram
-- mengubah Daftar Tanaman yg semula berbentuk Tabel menjadi sebuah Card
-- Memperbaiki Fitur Tutorial
-- Membuat Halaman Profile Akun
