@@ -25,3 +25,4 @@ In the project directory, you can run:
 - memperbaiki chart
 - membuat landing page
 - menambah insight top tanaman
+- Deployment
