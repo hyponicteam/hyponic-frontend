@@ -26,7 +26,7 @@ In the project directory, you can run:
 - membuat landing page
 - menambah insight top tanaman
 - Deployment
-- Memperbaiki Tampilan
+- Memperbaiki Design Tampilan
 
 ## Link Web Hyponic :
 http://hyponic.site
