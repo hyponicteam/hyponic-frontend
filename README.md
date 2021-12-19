@@ -18,5 +18,5 @@ In the project directory, you can run:
 
 1. untuk masuk ke aplikasi silahkan melakukan pendaftaran terlebih dahulu
 2. jika pendaftaran berhasil, maka akan muncul alert berhasil daftar
-3. jika pendaftaran gagal/tidak muncul alert berhasil, silahkan hubungi no wa 07861130080. karena komputer server harus menyalakan xampp agar aplikasi bisa tersambung ke api.
+3. jika pendaftaran gagal/tidak muncul alert berhasil, silahkan hubungi no wa 08761130080. karena komputer server harus menyalakan xampp agar aplikasi bisa tersambung ke api.
 4. silahkan login, dan akan masuk ke home jika berhasil login
