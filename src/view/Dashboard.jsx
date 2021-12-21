@@ -147,14 +147,13 @@ function Dashboard() {
             {Object.keys(videos).map((item, i) => (
               <div className={style.article_card}>
                 <div className={style.header_card}>
-                  <img className={style.img_article} src={videos[item].video_category.image_url} alt="" />
+                  <iframe className={style.frame_yt} src={`https://www.youtube.com/embed/${videos[item].video_url.slice(33, 43)}?controls=0`}></iframe>
                 </div>
-                <div className={style.body_card}>
+                <div className={style.body_card_video}>
                   <div className={style.tag}>
-                    <p className={style.tag_category}>videos</p>
+                    <p className={style.tag_category}>Video</p>
                   </div>
                   <p className={style.article_title}>{videos[item].title}</p>
-                  <p className={style.article_date}>admin {videos[item].updated_at.slice(0, 10)}</p>
                 </div>
               </div>
             ))}

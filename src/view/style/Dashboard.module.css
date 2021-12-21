@@ -199,3 +199,16 @@
   font-weight: 300;
   font-size: 14px;
 }
+
+.body_card_video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 125px;
+}
+
+.frame_yt {
+  object-fit: cover;
+}

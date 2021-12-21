@@ -86,7 +86,27 @@ function Tutorial() {
                 Video
               </button>
             </div>
-            <h1>videos</h1>
+            <div className={style.list_article}>
+              <div className={style.list_top}>
+                <h2 className={style.list_title}>Semua video</h2>
+              </div>
+
+              <div className={style.article_cards}>
+                {Object.keys(videos).map((item, i) => (
+                  <div className={style.article_card}>
+                    <div className={style.header_card}>
+                      <iframe className={style.frame_yt} src={`https://www.youtube.com/embed/${videos[item].video_url.slice(33, 43)}?controls=0`}></iframe>
+                    </div>
+                    <div className={style.body_card_video}>
+                      <div className={style.tag}>
+                        <p className={style.tag_category}>Video</p>
+                      </div>
+                      <p className={style.article_title}>{videos[item].title}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
       </div>

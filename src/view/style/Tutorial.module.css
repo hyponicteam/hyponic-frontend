@@ -64,6 +64,15 @@
   min-height: 150px;
 }
 
+.body_card_video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  min-height: 125px;
+}
+
 .tag {
   display: flex;
 }
@@ -99,4 +108,8 @@
 .article_date {
   font-weight: 300;
   font-size: 14px;
+}
+
+.frame_yt {
+  object-fit: cover;
 }
