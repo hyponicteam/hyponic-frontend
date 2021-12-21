@@ -14,9 +14,16 @@ In the project directory, you can run:
 
 <code>npm start</code>
 
-### Penggunaan aplikasi
+## Sprint 3 :
+- memperbaiki chart
+- membuat landing page
+- menambah insight top tanaman
+- Deployment
+- Memperbaiki Design Tampilan
 
-1. untuk masuk ke aplikasi silahkan melakukan pendaftaran terlebih dahulu
-2. jika pendaftaran berhasil, maka akan muncul alert berhasil daftar
-3. jika pendaftaran gagal/tidak muncul alert berhasil, silahkan hubungi no wa 07861130080. karena komputer server harus menyalakan xampp agar aplikasi bisa tersambung ke api.
-4. silahkan login, dan akan masuk ke home jika berhasil login
+## Link Web Hyponic :
+http://hyponic.site
+
+Login Akun : admin@hyponic.com
+             Pass: Dadang123456
+
