@@ -1,0 +1,148 @@
+.register_container {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+}
+
+.left_container {
+  width: 45%;
+  background: linear-gradient(180deg, #38ac91 0%, #86d4b9 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.brand_logo {
+  width: 100px;
+  height: auto;
+}
+
+.brand_text {
+  font-size: 24px;
+  color: #145d45;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.heading_left {
+  font-size: 24px;
+  color: #fff;
+}
+
+.left_description {
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  width: 60%;
+  margin-top: 10px;
+}
+
+/* btn */
+.btn_register {
+  background-color: #38ac91;
+  border: none;
+  border-radius: 4px;
+  width: 55%;
+  color: #fff;
+  padding: 5px 0px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.btn_register:hover {
+  background-color: #2b332c;
+  text-decoration: none;
+  color: #fff;
+}
+
+.right_container {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2f2033;
+}
+
+.login_form {
+  background: #fff;
+  border-radius: 10px;
+  width: 70%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_title {
+  width: 100%;
+  text-align: center;
+}
+
+.login_container_form {
+  width: 70%;
+}
+
+.input_form_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.input_form {
+  border: none;
+  height: 35px;
+  border-radius: 3px;
+  background: #e3e3e3 !important;
+  padding: 5px 10px;
+}
+
+.btn_login {
+  background-color: #38ac91;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  color: #fff;
+  padding: 5px 0px;
+  margin-top: 20px;
+}
+
+.btn_login:hover {
+  background-color: #2b332c;
+}
+
+.btn_gabung {
+  width: 100%;
+  background-color: #38ac91;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 0px;
+  color: #fff;
+  margin-top: 30px;
+  border: none;
+}
+
+.btn_gabung:hover {
+  background-color: #145d45;
+  color: #fff;
+}
+
+@media (max-width: 550px) {
+  .left_container {
+    display: none;
+  }
+
+  .right_container {
+    width: 100%;
+    height: 100vh;
+  }
+
+  .register_container {
+    display: block;
+    width: 100%;
+  }
+}

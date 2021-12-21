@@ -1,0 +1,77 @@
+.profil_container {
+  background-color: #8be0e6;
+}
+
+.profil_card {
+  width: 60%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.profil_left {
+  width: 20%;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid #dadce0;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+}
+
+.list_left:hover {
+  background-color: #ebf4f5;
+  cursor: pointer;
+}
+.list_left:nth-child(1) {
+  background-color: #ebf4f5;
+}
+
+.list_left {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.profil_right {
+  border: 1px solid black;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid #dadce0;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+}
+
+.profil_title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.picture {
+  overflow: hidden;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.input_image {
+  background-color: red;
+  visibility: hidden;
+}
+
+.picture_profile {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.form_profil {
+  width: 50%;
+}

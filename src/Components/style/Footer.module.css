@@ -1,0 +1,31 @@
+/* footer */
+.footer {
+  background-color: #036666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0px;
+}
+
+.footer_content {
+  width: 20%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footer_link:hover {
+  color: rgb(206, 202, 202);
+}
+
+.footer_copy {
+  font-size: 14px;
+  margin-top: 5px;
+  color: #fff;
+}

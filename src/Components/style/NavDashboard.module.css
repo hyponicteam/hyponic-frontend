@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+.navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #dadce0;
+}
+
+.container_navbar {
+  width: 90%;
+  margin: 0px auto;
+  font-weight: 500;
+}
+
+.navbar_brand {
+  color: #036666 !important;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.logo {
+  margin-right: 10px;
+}
+
+.login_button {
+  background-color: #036666;
+  width: 100px;
+  text-align: center;
+  color: #f5f8fa !important;
+  border-radius: 4px;
+}
+
+.register_button {
+  width: 100px;
+  border: 1px solid #036666;
+  text-align: center;
+  color: #036666 !important;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+
+/* responsive breakpoint */
+@media screen and (max-width: 1000px) {
+  .login_button {
+    margin-top: 5px;
+  }
+}

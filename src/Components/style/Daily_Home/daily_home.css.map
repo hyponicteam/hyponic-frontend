@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,qBAAqB,CAAC;EACpB,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,SAAS;CAWlB;;AAbD,AAIE,qBAJmB,CAInB,uBAAuB,CAAC;EACtB,SAAS,EAAE,IAAI;EACf,aAAa,EAAE,IAAI;CACpB;;AAPH,AASE,qBATmB,CASnB,iBAAiB,CAAC;EAChB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;CACtC",
-    "sources": [
-        "daily_home.scss"
-    ],
-    "names": [],
-    "file": "daily_home.css"
-}

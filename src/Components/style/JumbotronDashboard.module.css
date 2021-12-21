@@ -1,0 +1,84 @@
+/* jumbotron */
+
+.jumbotron {
+  background-color: #60e1cb;
+  padding: 50px 10%;
+  display: flex;
+}
+
+.left_jumbotron {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title_jumbotron {
+  font-weight: 700;
+  font-size: 34px;
+  color: #1e272e;
+}
+
+.description_jumbotron {
+  color: #1e272e;
+  font-size: 16px;
+}
+
+.cards_jumbotron {
+  max-width: 400px;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.card {
+  background-color: #fff;
+  width: 100px;
+  height: 150px;
+  margin-right: 20px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 28, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_title {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.card_image {
+  max-width: 100%;
+  width: 75px;
+}
+
+.right_jumbotron {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.jumbotron_img {
+  max-width: 100%;
+  width: 400px;
+  height: auto;
+}
+
+/* responsive breakpoint */
+@media screen and (max-width: 1000px) {
+  .jumbotron {
+    flex-direction: column;
+  }
+
+  .left_jumbotron {
+    order: 2;
+  }
+
+  .right_jumbotron {
+    order: 1;
+    margin-top: -30px;
+    margin-bottom: 20px;
+  }
+}
