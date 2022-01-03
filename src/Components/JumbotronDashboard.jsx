@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./style/JumbotronDashboard.module.css";
+import { Link } from "react-router-dom";
 
 // image
 import jumbotronImg from "../assets/img/cont-right.png";
@@ -14,18 +15,24 @@ function JumbotronDashboard() {
           <h1 className={style.title_jumbotron}>Sukseskan Panenmu</h1>
           <p className={style.description_jumbotron}>Hyponic membantu anda untuk memulai dan merawat tanaman hidroponik hingga panen</p>
           <div className={style.cards_jumbotron}>
-            <div className={style.card}>
-              <img className={style.card_image} src={cardIcon1} alt="" />
-              <h2 className={style.card_title}>Pantau tanaman</h2>
-            </div>
-            <div className={style.card}>
-              <img className={style.card_image} src={cardIcon3} alt="" />
-              <h2 className={style.card_title}>Insight tanaman</h2>
-            </div>
-            <div className={style.card}>
-              <img className={style.card_image} src={cardIcon2} alt="" />
-              <h2 className={style.card_title}>Tutorial Tanaman</h2>
-            </div>
+            <Link className={style.link_jumbotron} to={"/tanamanku"}>
+              <div className={style.card}>
+                <img className={style.card_image} src={cardIcon1} alt="" />
+                <h2 className={style.card_title}>Pantau tanaman</h2>
+              </div>
+            </Link>
+            <Link className={style.link_jumbotron} to={"/tanamanku"}>
+              <div className={style.card}>
+                <img className={style.card_image} src={cardIcon3} alt="" />
+                <h2 className={style.card_title}>Insight tanaman</h2>
+              </div>
+            </Link>
+            <Link className={style.link_jumbotron} to={"/tutorial"}>
+              <div className={style.card}>
+                <img className={style.card_image} src={cardIcon2} alt="" />
+                <h2 className={style.card_title}>Tutorial Tanaman</h2>
+              </div>
+            </Link>
           </div>
         </div>
         <div className={style.right_jumbotron}>

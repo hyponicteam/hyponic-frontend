@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavDashboard from "../Components/NavDashboard";
 import { Button, Modal } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
@@ -24,6 +24,15 @@ function PantauEdit() {
 
   console.log("stateku " + state.state);
   console.log("stateku " + state.plants);
+
+  //useeffect get api
+  useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("TOKEN"),
+      },
+    };
+  }, []);
 
   //handle input change
   const handleInputChange = (event) => {
@@ -81,7 +90,7 @@ function PantauEdit() {
       <Modal show={modalShow} onHide={() => setModalShow(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Body>
           <h4>Pantau Berhasil</h4>
-          <p>Selamat data pantauan anda berhasil</p>
+          <p>Selamat data pantauan anda berhasil diubah</p>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={() => setModalShow(false)}>

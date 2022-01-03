@@ -22,15 +22,12 @@ function NavDashboard() {
     axios
       .get(BASE_API_URL + `/user`, config)
       .then((res) => {
-        console.log(res.data.data);
         setUser(res.data.data);
       })
       .catch((res) => {
         console.log(res);
       });
   }, []);
-
-  console.log(user);
 
   const _onLogout = () => {
     logout();

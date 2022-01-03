@@ -24,6 +24,7 @@ function Tanamanku() {
   const [modalShow2, setModalShow2] = useState(false);
   const [topHeightPlant, setTopHeightPlant] = useState([]);
   const [topLeafPlant, setTopLeafPlant] = useState([]);
+  const [modalHapus, setModalHapus] = useState(false);
   useEffect(() => {
     //config auth
     const config = {
@@ -66,6 +67,21 @@ function Tanamanku() {
   };
   return (
     <div>
+      {/* modal hapus */}
+      {/* <Modal show={modalShow} onHide={() => setModalShow(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Body>
+          <h4>Hapus tanaman berhasil</h4>
+          <p>Selamat tanaman anda berhasil dihapus</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setModalShow(false)}>
+            <Link className="btn_back" to={{ pathname: `/Tanaman/${state.plants}`, state: { plants: state.plants } }}>
+              Kembali
+            </Link>
+          </Button>
+        </Modal.Footer>
+      </Modal> */}
+
       {/* modal */}
       <TambahTanaman show={modalShow} onHide={() => setModalShow(false)} />
       <EditTanaman show={modalShow2} onHide={() => setModalShow2(false)} />

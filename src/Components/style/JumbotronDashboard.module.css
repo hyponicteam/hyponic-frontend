@@ -1,5 +1,10 @@
 /* jumbotron */
 
+.link_jumbotron {
+  text-decoration: none;
+  color: #212529;
+}
+
 .jumbotron {
   background-color: #60e1cb;
   padding: 50px 10%;

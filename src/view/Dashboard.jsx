@@ -58,7 +58,7 @@ function Dashboard() {
         Authorization: "Bearer " + localStorage.getItem("TOKEN"),
       },
     };
-    axios.delete(`http://18.221.184.74:8088/api/plants/${id}`, config).then((res) => {
+    axios.delete(BASE_API_URL + `/plants/${id}`, config).then((res) => {
       console.log(res);
       alert("berhasil ngehapus");
       window.location.reload();
@@ -91,7 +91,9 @@ function Dashboard() {
                     <p className={style.card_title}>{tanaman[item].name}</p>
                     <p className={style.card_date}>{tanaman[item].time_difference}</p>
                     <div className={style.action}>
-                      <Link className={style.btn_pantau}>Pantau</Link>
+                      <Link className={style.btn_pantau} to={{ pathname: `/Tanaman/${tanaman[item].id}`, state: { plants: tanaman[item].id, name: tanaman[item].name } }}>
+                        Pantau
+                      </Link>
                       <Link className={style.icon} to={{ state: { plants: tanaman[item].id, name: tanaman[item].name } }} onClick={() => setModalShow2(true)}>
                         <AiFillEdit />
                       </Link>

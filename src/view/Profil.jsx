@@ -6,12 +6,12 @@ import { Form, Button } from "react-bootstrap";
 import style from "./style/profil.module.css";
 import { BASE_API_URL } from "../constants/urls";
 import NavDashboard from "../Components/NavDashboard";
+import PROFILE_DEFAULT from "../assets/img/profile-default.png";
 
 //handle ibnbput change
 
 function Profil() {
-  const [profil, setProfil] = useState([]);
-
+  const [profil, setProfil] = useState("");
   //config auth
 
   const handleInputChange = (event) => {
@@ -42,7 +42,7 @@ function Profil() {
       .patch(BASE_API_URL + "/user", requestBody, config)
       .then((res) => {
         setProfil(profil);
-        alert("pendaftaran berhasil");
+        alert("Ganti profil berhasil");
       })
       .catch((res) => {
         console.log("tidak berhasil" + res);
@@ -61,14 +61,13 @@ function Profil() {
     axios
       .get(BASE_API_URL + `/user`, config)
       .then((res) => {
-        console.log(res.data);
         setProfil(res.data.data);
       })
       .catch((res) => {
         console.log(res);
       });
   }, []);
-  console.log(profil);
+
   return (
     <div className={style.profile_container}>
       <NavDashboard />
@@ -79,9 +78,9 @@ function Profil() {
         <div className={style.profil_right}>
           <h2 className={style.profil_title}>Pengaturan Profil</h2>
           <div className={style.picture}>
-            <img src="https://sekolahutsman.sch.id/wp-content/uploads/2016/03/no-profile.png" alt="user profil" className={style.picture_profile} />
+            <img src={PROFILE_DEFAULT} alt="user profil" className={style.picture_profile} />
           </div>
-          <label for="avatar" class="btn">
+          <label htmlFor="avatar" className="btn">
             Ganti Profil
           </label>
           <input className={style.input_image} type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
@@ -98,6 +97,7 @@ function Profil() {
               Ubah
             </Button>
           </Form>
+          <img src={profil.profile_picture} alt="" />
         </div>
       </div>
     </div>

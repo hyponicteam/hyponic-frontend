@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 
 //component
@@ -27,7 +27,18 @@ function Tanaman() {
   const [accidity, setAccidity] = useState([]);
   const [topHeight, setTopHeight] = useState([]);
   const [topLeaf, setTopLeaf] = useState([]);
-
+  const [lastPantau, setLastPantau] = useState();
+  var rightNow = new Date();
+  var getDate = rightNow.toISOString().slice(0, 10).replace(/-/g, "");
+  console.log(getDate);
+  var year = getDate.slice(0, 4);
+  console.log(year);
+  var month = getDate.slice(4, 6);
+  console.log(month);
+  var day = getDate.slice(6, 8);
+  console.log(day);
+  var allDate = year + "-" + month + "-" + day;
+  console.log(allDate);
   useEffect(() => {
     const config = {
       headers: {
@@ -39,7 +50,14 @@ function Tanaman() {
       const responseData = res.data.data.growths;
       console.log("berhasil ambil api", res.data.data);
       setData(responseData);
-
+      console.log(data.length);
+      console.log(res.data.data.growths.length);
+      if (res.data.data.growths.length === 0) {
+        setLastPantau(0);
+      } else {
+        setLastPantau(res.data.data.growths[res.data.data.growths.length - 1].created_at.slice(0, 10));
+        console.log(lastPantau);
+      }
       //ambil tanggal saja dan diset menjadi label
       const x = responseData;
       let labelsDate = [];
@@ -61,6 +79,10 @@ function Tanaman() {
         dataTemperature.push(element.temperature);
         dataAccidity.push(element.acidity);
       });
+      dataChartHeight.reverse();
+      dataChartLeaf.reverse();
+      dataTemperature.reverse();
+      dataAccidity.reverse();
       setHeight(dataChartHeight);
       setLeaf(dataChartLeaf);
       setTemperature(dataTemperature);
@@ -69,7 +91,7 @@ function Tanaman() {
 
     //top growths
     axios
-      .get(BASE_API_URL + `/top-growths?category=plant_height&n=2&plant_id=${state.plants}`, config)
+      .get(BASE_API_URL + `/top-growths?category=plant_height&n=1&plant_id=${state.plants}`, config)
       .then((res) => {
         console.log(res.data.data);
         setTopHeight(res.data.data);
@@ -101,6 +123,20 @@ function Tanaman() {
       window.location.reload();
     });
   };
+
+  console.log(data);
+  console.log(lastPantau);
+  console.log(allDate);
+
+  // function isSameDate() {
+  //   if (lastPantau === allDate) {
+  //     return false;
+  //     console.log("jancok");
+  //   } else {
+  //     return true;
+  //     console.log("bangsat");
+  //   }
+  // }
 
   return (
     <div className="tanaman_page">
@@ -150,9 +186,13 @@ function Tanaman() {
         {/* chart */}
         <div className={style.chart_header}>
           <h2 className={style.chart_title}>Chart Pantau</h2>
-          <Link to={{ pathname: `/Pantau/${state.plants}`, state: { plants: state.plants } }} className={(style.btn, style.btn_pantau)}>
-            Pantau
-          </Link>
+          {lastPantau !== allDate ? (
+            <Link to={{ pathname: `/Pantau/${state.plants}`, state: { plants: state.plants } }} className={(style.btn, style.btn_pantau)}>
+              Pantau
+            </Link>
+          ) : (
+            <button className={(style.btn, style.btn_pantau)}>kembali besok</button>
+          )}
         </div>
         <div className={style.chart_container}>
           <div className={style.chart}>
@@ -178,8 +218,8 @@ function Tanaman() {
                   {
                     label: "Tinggi Tanaman",
                     data: height,
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    borderColor: "#86D4B9",
+                    backgroundColor: "#86D4B9",
                   },
                 ],
               }}
@@ -208,8 +248,8 @@ function Tanaman() {
                   {
                     label: "Lebar Daun",
                     data: leaf,
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    borderColor: "#86D4B9",
+                    backgroundColor: "#86D4B9",
                   },
                 ],
               }}
@@ -236,8 +276,8 @@ function Tanaman() {
                   {
                     label: "Temperature",
                     data: temperature,
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    borderColor: "#86D4B9",
+                    backgroundColor: "#86D4B9",
                   },
                 ],
               }}
@@ -265,8 +305,8 @@ function Tanaman() {
                   {
                     label: "PH Air",
                     data: accidity,
-                    borderColor: "rgb(255, 99, 132)",
-                    backgroundColor: "rgba(255, 99, 132, 0.5)",
+                    borderColor: "#86D4B9",
+                    backgroundColor: "#86D4B9",
                   },
                 ],
               }}
@@ -283,8 +323,8 @@ function Tanaman() {
                 <th>Tanggal</th>
                 <th>Tinggi</th>
                 <th>Lebar</th>
-                <th>Temperature</th>
                 <th>Suhu</th>
+                <th>Temperature</th>
                 <th>Aksi</th>
               </tr>
             </thead>

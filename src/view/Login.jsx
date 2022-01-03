@@ -44,6 +44,32 @@ function Login(props) {
       });
   };
 
+  const masukDemo = () => {
+    const requestBody = {
+      email: "demo@hyponic.com",
+      password: "demohyponic",
+    };
+
+    const config = {
+      headers: {
+        Accept: "application/json",
+      },
+    };
+
+    axios
+      .post(BASE_API_URL + "/auth/login", requestBody, config)
+      .then(function (res) {
+        login({
+          email: "demo@hyponic.com",
+          token: res.data.data.access_token,
+        });
+        props.history.push("/dashboard");
+      })
+      .catch(function () {
+        setModalShow(true);
+      });
+  };
+
   return (
     <>
       <div className={style.login_container}>
@@ -73,6 +99,9 @@ function Login(props) {
                 <input required type="password" className={style.input_form} name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
               </div>
               <button className={(style.btn, style.btn_login)}>Masuk</button>
+              <button className={(style.btn, style.btn_login)} onClick={masukDemo}>
+                Masuk Demo
+              </button>
             </form>
           </div>
         </div>
