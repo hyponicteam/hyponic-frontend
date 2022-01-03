@@ -22,7 +22,7 @@ In the project directory, you can run:
 - Memperbaiki Design Tampilan
 
 ## Link Web Hyponic :
-http://hyponic.site
+http://hyponic.website/
 
 Login Akun : admin@hyponic.com
              Pass: Dadang123456
