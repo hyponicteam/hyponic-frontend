@@ -24,6 +24,6 @@ In the project directory, you can run:
 ## Link Web Hyponic :
 http://hyponic.website/
 
-Login Akun : admin@hyponic.com
-             Pass: Dadang123456
+Login Akun : demo@hyponic.com
+             Pass: demohyponic
 
