@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import { Line } from "react-chartjs-2";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Modal } from "react-bootstrap";
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
 
 //component
@@ -28,6 +28,9 @@ function Tanaman() {
   const [topHeight, setTopHeight] = useState([]);
   const [topLeaf, setTopLeaf] = useState([]);
   const [lastPantau, setLastPantau] = useState();
+  const [filterSum, setFilterSum] = useState(10000);
+  const [growthsLength, setGrowthsLength] = useState();
+  const [modalShow, setModalShow] = useState(false);
   var rightNow = new Date();
   var getDate = rightNow.toISOString().slice(0, 10).replace(/-/g, "");
   console.log(getDate);
@@ -39,6 +42,16 @@ function Tanaman() {
   console.log(day);
   var allDate = year + "-" + month + "-" + day;
   console.log(allDate);
+
+  //handle change select
+  const handleFilterChange = (e) => {
+    setFilterSum(e.target.value);
+  };
+
+  console.log("ini adalah nilai filter sum = ", filterSum);
+  const filterInt = parseInt(filterSum);
+  console.log(typeof filterInt);
+
   useEffect(() => {
     const config = {
       headers: {
@@ -51,12 +64,17 @@ function Tanaman() {
       console.log("berhasil ambil api", res.data.data);
       setData(responseData);
       console.log(data.length);
+      const panjangArrGrowths = res.data.data.growths.length;
+      setGrowthsLength(panjangArrGrowths);
+      console.log("ini adalah panjang array growths = " + growthsLength);
       console.log(res.data.data.growths.length);
+      console.log("ini adalah tanggal " + res.data.data.growths);
+      console.log("tipe data length growths = " + typeof growthsLength);
       if (res.data.data.growths.length === 0) {
         setLastPantau(0);
       } else {
-        setLastPantau(res.data.data.growths[res.data.data.growths.length - 1].created_at.slice(0, 10));
-        console.log(lastPantau);
+        setLastPantau(res.data.data.growths[0].created_at.slice(0, 10));
+        console.log("ini adalah last pantau " + lastPantau);
       }
       //ambil tanggal saja dan diset menjadi label
       const x = responseData;
@@ -119,7 +137,7 @@ function Tanaman() {
     };
 
     axios.delete(BASE_API_URL + `/growths/${id}`, config).then((res) => {
-      alert("berhasil ngehapus");
+      setModalShow(true);
       window.location.reload();
     });
   };
@@ -140,6 +158,16 @@ function Tanaman() {
 
   return (
     <div className="tanaman_page">
+      {/* modal sukses */}
+      <Modal show={modalShow} onHide={() => setModalShow(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Body>
+          <h4>Hapus Berhasil</h4>
+          <p>Selamat data pantauan anda berhasil dihapus</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setModalShow(false)}>Kembali</Button>
+        </Modal.Footer>
+      </Modal>
       <NavDashboard />
       <JumbotronDashboard />
       <div className={style.tanaman_container}>
@@ -194,6 +222,12 @@ function Tanaman() {
             <button className={(style.btn, style.btn_pantau)}>kembali besok</button>
           )}
         </div>
+        <select name="filterDate" id="filterDate" onChange={handleFilterChange} value={filterSum}>
+          <option value="10000">semua</option>
+          <option value="7">7 Hari yang lalu</option>
+          <option value="30">30 Hari yang lalu</option>
+          <option value="60">60 hari yang lalu</option>
+        </select>
         <div className={style.chart_container}>
           <div className={style.chart}>
             {/* {Object.keys(data).map((n, index) => {
@@ -213,11 +247,11 @@ function Tanaman() {
                 },
               }}
               data={{
-                labels: labels,
+                labels: labels.slice(-filterInt),
                 datasets: [
                   {
                     label: "Tinggi Tanaman",
-                    data: height,
+                    data: height.slice(-filterInt),
                     borderColor: "#86D4B9",
                     backgroundColor: "#86D4B9",
                   },
@@ -243,11 +277,11 @@ function Tanaman() {
                 },
               }}
               data={{
-                labels: labels,
+                labels: labels.slice(-filterInt),
                 datasets: [
                   {
                     label: "Lebar Daun",
-                    data: leaf,
+                    data: leaf.slice(-filterInt),
                     borderColor: "#86D4B9",
                     backgroundColor: "#86D4B9",
                   },
@@ -271,7 +305,7 @@ function Tanaman() {
                 },
               }}
               data={{
-                labels: labels,
+                labels: labels.slice(-filterInt),
                 datasets: [
                   {
                     label: "Temperature",
@@ -300,11 +334,11 @@ function Tanaman() {
                 },
               }}
               data={{
-                labels: labels,
+                labels: labels.slice(-filterInt),
                 datasets: [
                   {
                     label: "PH Air",
-                    data: accidity,
+                    data: accidity.slice(-filterInt),
                     borderColor: "#86D4B9",
                     backgroundColor: "#86D4B9",
                   },
@@ -329,33 +363,35 @@ function Tanaman() {
               </tr>
             </thead>
             <tbody>
-              {Object.keys(data).map((item, i) => (
-                <tr>
-                  <td>
-                    <li key={i}>{data[item].created_at}</li>
-                  </td>
-                  <td>
-                    <li key={i}>{data[item].plant_height}</li>
-                  </td>
-                  <td>
-                    <li key={i}>{data[item].leaf_width}</li>
-                  </td>
-                  <td>
-                    <li key={i}>{data[item].temperature}</li>
-                  </td>
-                  <td>
-                    <li key={i}>{data[item].acidity}</li>
-                  </td>
-                  <td className={style.btn_tanaman_container}>
-                    <Link to={{ pathname: `/PantauEdit/${data[item].id}`, state: { state: data[item].id, plants: state.plants } }}>
-                      <button className={(style.btn_pantau, style.btn_tanaman)}>UBAH</button>
-                    </Link>
-                    <button className={(style.btn_pantau, style.btn_delete)} onClick={() => DeletePantau(data[item].id)}>
-                      HAPUS
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {Object.keys(data)
+                .filter((v) => v < filterInt)
+                .map((item, i) => (
+                  <tr>
+                    <td>
+                      <li key={i}>{data[item].created_at}</li>
+                    </td>
+                    <td>
+                      <li key={i}>{data[item].plant_height}</li>
+                    </td>
+                    <td>
+                      <li key={i}>{data[item].leaf_width}</li>
+                    </td>
+                    <td>
+                      <li key={i}>{data[item].temperature}</li>
+                    </td>
+                    <td>
+                      <li key={i}>{data[item].acidity}</li>
+                    </td>
+                    <td className={style.btn_tanaman_container}>
+                      <Link to={{ pathname: `/PantauEdit/${data[item].id}`, state: { state: data[item].id, plants: state.plants } }}>
+                        <button className={(style.btn_pantau, style.btn_tanaman)}>UBAH</button>
+                      </Link>
+                      <button className={(style.btn_pantau, style.btn_delete)} onClick={() => DeletePantau(data[item].id)}>
+                        HAPUS
+                      </button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </Table>
         </div>
