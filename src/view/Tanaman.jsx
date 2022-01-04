@@ -29,28 +29,28 @@ function Tanaman() {
   const [topLeaf, setTopLeaf] = useState([]);
   const [lastPantau, setLastPantau] = useState();
   const [filterSum, setFilterSum] = useState(10000);
-  const [growthsLength, setGrowthsLength] = useState();
+  // const [growthsLength, setGrowthsLength] = useState();
   const [modalShow, setModalShow] = useState(false);
   var rightNow = new Date();
   var getDate = rightNow.toISOString().slice(0, 10).replace(/-/g, "");
-  console.log(getDate);
+  // console.log(getDate);
   var year = getDate.slice(0, 4);
-  console.log(year);
+  // console.log(year);
   var month = getDate.slice(4, 6);
-  console.log(month);
+  // console.log(month);
   var day = getDate.slice(6, 8);
-  console.log(day);
+  // console.log(day);
   var allDate = year + "-" + month + "-" + day;
-  console.log(allDate);
+  // console.log(allDate);
 
   //handle change select
   const handleFilterChange = (e) => {
     setFilterSum(e.target.value);
   };
 
-  console.log("ini adalah nilai filter sum = ", filterSum);
+  // console.log("ini adalah nilai filter sum = ", filterSum);
   const filterInt = parseInt(filterSum);
-  console.log(typeof filterInt);
+  // console.log(typeof filterInt);
 
   useEffect(() => {
     const config = {
@@ -61,20 +61,20 @@ function Tanaman() {
 
     axios.get(BASE_API_URL + `/plants/${state.plants}`, config).then((res) => {
       const responseData = res.data.data.growths;
-      console.log("berhasil ambil api", res.data.data);
+      // console.log("berhasil ambil api", res.data.data);
       setData(responseData);
-      console.log(data.length);
-      const panjangArrGrowths = res.data.data.growths.length;
-      setGrowthsLength(panjangArrGrowths);
-      console.log("ini adalah panjang array growths = " + growthsLength);
-      console.log(res.data.data.growths.length);
-      console.log("ini adalah tanggal " + res.data.data.growths);
-      console.log("tipe data length growths = " + typeof growthsLength);
+      // console.log(data.length);
+      // const panjangArrGrowths = res.data.data.growths.length;
+      // setGrowthsLength(panjangArrGrowths);
+      // console.log("ini adalah panjang array growths = " + growthsLength);
+      // console.log(res.data.data.growths.length);
+      // console.log("ini adalah tanggal " + res.data.data.growths);
+      // console.log("tipe data length growths = " + typeof growthsLength);
       if (res.data.data.growths.length === 0) {
         setLastPantau(0);
       } else {
         setLastPantau(res.data.data.growths[0].created_at.slice(0, 10));
-        console.log("ini adalah last pantau " + lastPantau);
+        // console.log("ini adalah last pantau " + lastPantau);
       }
       //ambil tanggal saja dan diset menjadi label
       const x = responseData;
@@ -83,7 +83,7 @@ function Tanaman() {
         labelsDate.push(element.created_at.slice(0, 10));
       });
       labelsDate.reverse();
-      console.log("data tanggal : " + labelsDate);
+      // console.log("data tanggal : " + labelsDate);
       setLabels(labelsDate);
 
       //ambil data chart
@@ -111,7 +111,7 @@ function Tanaman() {
     axios
       .get(BASE_API_URL + `/top-growths?category=plant_height&n=1&plant_id=${state.plants}`, config)
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setTopHeight(res.data.data);
       })
       .catch((res) => {
@@ -121,7 +121,7 @@ function Tanaman() {
     axios
       .get(BASE_API_URL + `/top-growths?category=leaf_width&n=1&plant_id=${state.plants}`, config)
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setTopLeaf(res.data.data);
       })
       .catch((res) => {
@@ -142,9 +142,9 @@ function Tanaman() {
     });
   };
 
-  console.log(data);
-  console.log(lastPantau);
-  console.log(allDate);
+  // console.log(data);
+  // console.log(lastPantau);
+  // console.log(allDate);
 
   // function isSameDate() {
   //   if (lastPantau === allDate) {
@@ -182,7 +182,7 @@ function Tanaman() {
                   <FaLeaf className={style.icon_insight} />
                 </div>
                 {Object.keys(topHeight).map((item, i) => (
-                  <div className={style.insight_text}>
+                  <div key={item} className={style.insight_text}>
                     <p className={style.title}>Top Tinggi</p>
                     <p className={style.date}>
                       <span>{topHeight[item].from.slice(0, 10)}</span> ke <span>{topHeight[item].to.slice(0, 10)}</span>
@@ -196,7 +196,7 @@ function Tanaman() {
                   <GiBrainStem className={style.icon_insight} />
                 </div>
                 {Object.keys(topLeaf).map((item, i) => (
-                  <div className={style.insight_text}>
+                  <div key={item} className={style.insight_text}>
                     <p className={style.title}>Top Lebar</p>
                     <p className={style.date}>
                       <span>{topLeaf[item].from.slice(0, 10)}</span> ke <span>{topLeaf[item].to.slice(0, 10)}</span>
@@ -366,7 +366,7 @@ function Tanaman() {
               {Object.keys(data)
                 .filter((v) => v < filterInt)
                 .map((item, i) => (
-                  <tr>
+                  <tr key={item}>
                     <td>
                       <li key={i}>{data[item].created_at}</li>
                     </td>

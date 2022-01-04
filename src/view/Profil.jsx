@@ -1,7 +1,7 @@
 // dependency
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 //komponen
 import style from "./style/profil.module.css";
 import { BASE_API_URL } from "../constants/urls";
@@ -12,6 +12,7 @@ import PROFILE_DEFAULT from "../assets/img/profile-default.png";
 
 function Profil() {
   const [profil, setProfil] = useState("");
+  const [modalEditProfile, setModalEditProfile] = useState(false);
   //config auth
 
   const handleInputChange = (event) => {
@@ -42,7 +43,8 @@ function Profil() {
       .patch(BASE_API_URL + "/user", requestBody, config)
       .then((res) => {
         setProfil(profil);
-        alert("Ganti profil berhasil");
+        setModalEditProfile(true);
+        window.location.reload();
       })
       .catch((res) => {
         console.log("tidak berhasil" + res);
@@ -70,6 +72,16 @@ function Profil() {
 
   return (
     <div className={style.profile_container}>
+      {/* modal hapus */}
+      <Modal show={modalEditProfile} onHide={() => setModalEditProfile(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Body>
+          <h4>Edit Berhasil</h4>
+          <p>Selamat profile anda berhasil diperbarui</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setModalEditProfile(false)}>Kembali</Button>
+        </Modal.Footer>
+      </Modal>
       <NavDashboard />
       <div className={style.profil_card}>
         <div className={style.profil_left}>

@@ -42,7 +42,7 @@ function TambahTanaman(props) {
         setData({
           ...data,
         });
-        console.log(res);
+        // console.log(res);
         window.location.reload();
       } else {
         setData({

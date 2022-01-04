@@ -12,7 +12,7 @@ function ReadArticle() {
   console.log(state.articlesId);
   useEffect(() => {
     axios.get(BASE_API_URL + `/articles/${state.articlesId}`).then((res) => {
-      console.log("api artikel = " + res.data.data);
+      // console.log("api artikel = " + res.data.data);
       setArticles(res.data.data);
     });
   }, []);

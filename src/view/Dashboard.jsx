@@ -8,6 +8,7 @@ import NavDashboard from "../Components/NavDashboard";
 import JumbotronDashboard from "../Components/JumbotronDashboard";
 import { BASE_API_URL } from "../constants/urls";
 import EditTanaman from "./EditTanaman";
+import { Modal, Button } from "react-bootstrap";
 //icon
 import { AiFillEdit } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
@@ -21,6 +22,7 @@ function Dashboard() {
   const [videos, setVideos] = useState([]);
   const [tanaman, setTanaman] = useState([]);
   const [modalShow2, setModalShow2] = useState(false);
+  const [modalHapus, setModalHapus] = useState(false);
   useEffect(() => {
     //config auth
     const config = {
@@ -36,8 +38,8 @@ function Dashboard() {
         axios.spread((res, res2) => {
           setArticles(res.data.data.data);
           setVideos(res2.data.data);
-          console.log("berhasil ambil api articles : ", res.data.data.data);
-          console.log("berhasil ambil api videos : ", res2.data.data);
+          // console.log("berhasil ambil api articles : ", res.data.data.data);
+          // console.log("berhasil ambil api videos : ", res2.data.data);
         })
       )
       .catch((error) => {
@@ -46,7 +48,7 @@ function Dashboard() {
 
     //mengambil list tanaman
     axios.get(BASE_API_URL + "/latest-plants?n=6", config).then((res) => {
-      console.log("berhasil api tanaman", res.data.data);
+      // console.log("berhasil api tanaman", res.data.data);
       setTanaman(res.data.data);
     });
   }, []);
@@ -59,14 +61,24 @@ function Dashboard() {
       },
     };
     axios.delete(BASE_API_URL + `/plants/${id}`, config).then((res) => {
-      console.log(res);
-      alert("berhasil ngehapus");
+      // console.log(res);
+      setModalHapus(true);
       window.location.reload();
     });
   };
 
   return (
     <div className={style.dashboard_container}>
+      {/* modal hapus */}
+      <Modal show={modalHapus} onHide={() => setModalHapus(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Body>
+          <h4>Hapus Berhasil</h4>
+          <p>Selamat tanaman anda berhasil dihapus</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setModalHapus(false)}>Kembali</Button>
+        </Modal.Footer>
+      </Modal>
       <EditTanaman show={modalShow2} onHide={() => setModalShow2(false)} />
       <NavDashboard />
       <JumbotronDashboard />
@@ -83,7 +95,7 @@ function Dashboard() {
           {tanaman.length !== 0 ? (
             <div className={style.list_content}>
               {Object.keys(tanaman).map((item, i) => (
-                <div className={style.list_card}>
+                <div key={item} className={style.list_card}>
                   <div className={style.left_card}>
                     <img className={style.icon_plant} src={plant_icon} alt="" />
                   </div>
@@ -97,11 +109,9 @@ function Dashboard() {
                       <Link className={style.icon} to={{ state: { plants: tanaman[item].id, name: tanaman[item].name } }} onClick={() => setModalShow2(true)}>
                         <AiFillEdit />
                       </Link>
-                      <Link className={style.icon}>
-                        <button className={style.btn_transparant} onClick={() => DeletePlant(tanaman[item].id)}>
-                          <MdDelete />
-                        </button>
-                      </Link>
+                      <button className={style.btn_transparant} onClick={() => DeletePlant(tanaman[item].id)}>
+                        <MdDelete />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -115,12 +125,14 @@ function Dashboard() {
         <div className={style.list_article}>
           <div className={style.list_top}>
             <h2 className={style.list_title}>Artikel Terbaru</h2>
-            <Link className={style.all}>Lihat Semua</Link>
+            <Link to="/tutorial" className={style.all}>
+              Lihat Semua
+            </Link>
           </div>
 
           <div className={style.article_cards}>
             {Object.keys(articles).map((item, i) => (
-              <Link className={style.link_article} to={{ pathname: `/ReadArticle/${articles[item].id}`, state: { articlesId: articles[item].id } }}>
+              <Link key={item} className={style.link_article} to={{ pathname: `/ReadArticle/${articles[item].id}`, state: { articlesId: articles[item].id } }}>
                 <div className={style.article_card}>
                   <div className={style.header_card}>
                     <img className={style.img_article} src={articles[item].image_url} alt="" />
@@ -142,12 +154,14 @@ function Dashboard() {
         <div className={style.list_article}>
           <div className={style.list_top}>
             <h2 className={style.list_title}>Video Terbaru</h2>
-            <Link className={style.all}>Lihat Semua</Link>
+            <Link to="/tutorial" className={style.all}>
+              Lihat Semua
+            </Link>
           </div>
 
           <div className={style.article_cards}>
             {Object.keys(videos).map((item, i) => (
-              <div className={style.article_card}>
+              <div key={item} className={style.article_card}>
                 <div className={style.header_card}>
                   <iframe className={style.frame_yt} src={`https://www.youtube.com/embed/${videos[item].video_url.slice(33, 43)}?controls=0`}></iframe>
                 </div>

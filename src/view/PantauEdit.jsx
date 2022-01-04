@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import NavDashboard from "../Components/NavDashboard";
 import { Button, Modal } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
@@ -25,14 +25,14 @@ function PantauEdit() {
   console.log("stateku " + state.state);
   console.log("stateku " + state.plants);
 
-  //useeffect get api
-  useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("TOKEN"),
-      },
-    };
-  }, []);
+  // //useeffect get api
+  // useEffect(() => {
+  //   const config = {
+  //     headers: {
+  //       Authorization: "Bearer " + localStorage.getItem("TOKEN"),
+  //     },
+  //   };
+  // }, []);
 
   //handle input change
   const handleInputChange = (event) => {

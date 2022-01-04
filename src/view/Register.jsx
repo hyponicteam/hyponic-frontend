@@ -18,6 +18,7 @@ function Register() {
   //set  data
   const [data, setData] = useState(initialState);
   const [modalShow, setModalShow] = useState(false);
+  const [failedRegister, setFailedRegister] = useState(false);
   //handle ibnbput change
   const handleInputChange = (event) => {
     setData({
@@ -50,7 +51,8 @@ function Register() {
         setModalShow(true);
       })
       .catch((res) => {
-        console.log("tidak berhasil" + res);
+        setFailedRegister(true);
+        // console.log("tidak berhasil" + res);
       });
   };
 
@@ -68,6 +70,16 @@ function Register() {
               Masuk
             </Link>
           </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <Modal show={failedRegister} onHide={() => setFailedRegister(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Body>
+          <h4>Pendaftaran Gagal</h4>
+          <p>Mohon maaf, pendaftaran anda gagal silahkan mencoba kembali</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setFailedRegister(false)}></Button>
         </Modal.Footer>
       </Modal>
       <div className={style.register_container}>

@@ -6,6 +6,7 @@ import JumbotronDashboard from "../Components/JumbotronDashboard";
 import NavDashboard from "../Components/NavDashboard";
 import style from "./style/Tanamanku.module.css";
 import { BASE_API_URL } from "../constants/urls";
+import { Modal, Button } from "react-bootstrap";
 //icon
 import { FaLeaf } from "react-icons/fa";
 import { GiBrainStem } from "react-icons/gi";
@@ -35,19 +36,19 @@ function Tanamanku() {
 
     //mengambil list tanaman
     axios.get(BASE_API_URL + "/latest-plants?n=6", config).then((res) => {
-      console.log("berhasil api tanaman", res.data.data);
+      // console.log("berhasil api tanaman", res.data.data);
       setTanaman(res.data.data);
     });
 
     //top growths
     axios.get(BASE_API_URL + `/top-plants?category=plant_height&n=1`, config).then((res) => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       setTopHeightPlant(res.data.data);
     });
 
     //top growths
     axios.get(BASE_API_URL + `/top-plants?category=leaf_width&n=1`, config).then((res) => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       setTopLeafPlant(res.data.data);
     });
   }, []);
@@ -59,28 +60,24 @@ function Tanamanku() {
         Authorization: "Bearer " + localStorage.getItem("TOKEN"),
       },
     };
-    axios.delete(`http://18.221.184.74:8088/api/plants/${id}`, config).then((res) => {
-      console.log(res);
-      alert("berhasil ngehapus");
+    axios.delete(BASE_API_URL + `/plants/${id}`, config).then((res) => {
+      // console.log(res);
+      setModalHapus(true);
       window.location.reload();
     });
   };
   return (
     <div>
       {/* modal hapus */}
-      {/* <Modal show={modalShow} onHide={() => setModalShow(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal show={modalHapus} onHide={() => setModalHapus(false)} size="md" aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Body>
-          <h4>Hapus tanaman berhasil</h4>
+          <h4>Hapus Berhasil</h4>
           <p>Selamat tanaman anda berhasil dihapus</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => setModalShow(false)}>
-            <Link className="btn_back" to={{ pathname: `/Tanaman/${state.plants}`, state: { plants: state.plants } }}>
-              Kembali
-            </Link>
-          </Button>
+          <Button onClick={() => setModalHapus(false)}>Kembali</Button>
         </Modal.Footer>
-      </Modal> */}
+      </Modal>
 
       {/* modal */}
       <TambahTanaman show={modalShow} onHide={() => setModalShow(false)} />
@@ -153,11 +150,9 @@ function Tanamanku() {
                       <Link className={style.icon} to={{ state: { plants: tanaman[item].id, name: tanaman[item].name } }} onClick={() => setModalShow2(true)}>
                         <AiFillEdit />
                       </Link>
-                      <Link className={style.icon}>
-                        <button className={style.btn_transparant} onClick={() => DeletePlant(tanaman[item].id)}>
-                          <MdDelete />
-                        </button>
-                      </Link>
+                      <button className={style.btn_transparant} onClick={() => DeletePlant(tanaman[item].id)}>
+                        <MdDelete />
+                      </button>
                     </div>
                   </div>
                 </div>
