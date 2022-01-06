@@ -26,8 +26,8 @@ function Tutorial() {
         axios.spread((res, res2) => {
           setArticles(res.data.data.data);
           setVideos(res2.data.data);
-          // console.log("berhasil ambil api articles : ", res.data.data.data);
-          // console.log("berhasil ambil api videos : ", res2.data.data);
+          console.log("berhasil ambil api articles : ", res.data.data.data);
+          console.log("berhasil ambil api videos : ", res2.data.data);
         })
       )
       .catch((error) => {

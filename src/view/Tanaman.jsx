@@ -183,7 +183,7 @@ function Tanaman() {
                 </div>
                 {Object.keys(topHeight).map((item, i) => (
                   <div key={item} className={style.insight_text}>
-                    <p className={style.title}>Top Tinggi</p>
+                    <p className={style.title}>Pertumbuhan Tinggi Batang Terbaik</p>
                     <p className={style.date}>
                       <span>{topHeight[item].from.slice(0, 10)}</span> ke <span>{topHeight[item].to.slice(0, 10)}</span>
                     </p>
@@ -197,7 +197,7 @@ function Tanaman() {
                 </div>
                 {Object.keys(topLeaf).map((item, i) => (
                   <div key={item} className={style.insight_text}>
-                    <p className={style.title}>Top Lebar</p>
+                    <p className={style.title}>Pertumbuhan Lebar Daun Terbaik</p>
                     <p className={style.date}>
                       <span>{topLeaf[item].from.slice(0, 10)}</span> ke <span>{topLeaf[item].to.slice(0, 10)}</span>
                     </p>
@@ -358,7 +358,7 @@ function Tanaman() {
                 <th>Tinggi</th>
                 <th>Lebar</th>
                 <th>Suhu</th>
-                <th>Temperature</th>
+                <th>PH Air</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -368,7 +368,7 @@ function Tanaman() {
                 .map((item, i) => (
                   <tr key={item}>
                     <td>
-                      <li key={i}>{data[item].created_at}</li>
+                      <li key={i}>{data[item].created_at.slice(0, 10)}</li>
                     </td>
                     <td>
                       <li key={i}>{data[item].plant_height}</li>
