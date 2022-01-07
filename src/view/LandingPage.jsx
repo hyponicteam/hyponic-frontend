@@ -63,17 +63,15 @@ function LandingPage() {
             <img className={style.content_img} src={contentiImg2} alt="" />
           </div>
           <div className={style.content_left}>
-            <h2 className={style.content_title}>Pantau Tanamanmu</h2>
-            <p className={style.content_description}>
-              Anda bisa memantau tanaman hidroponik dengan hyponic. Fitur ini akan memudahkan anda memantau tanaman anda, karena dengan chart pantau yang menampilkan chart tinggi tanaman, lebar daun tanaman, suhu udara, dan ph air.
-            </p>
+            <h2 className={style.content_title}>Insight Pertumbuhan</h2>
+            <p className={style.content_description}>Dapatkan stattistik insight tanaman dari hyponic yang akan membantu anda untuk mengetahui pertumbuhan tanaman terbaik dari tanaman yang anda tanaman.</p>
           </div>
         </div>
         <div className={style.content}>
           <div className={style.content_left}>
-            <h2 className={style.content_title}>Pantau Tanamanmu</h2>
+            <h2 className={style.content_title}>Tutorial Hidroponik</h2>
             <p className={style.content_description}>
-              Anda bisa memantau tanaman hidroponik dengan hyponic. Fitur ini akan memudahkan anda memantau tanaman anda, karena dengan chart pantau yang menampilkan chart tinggi tanaman, lebar daun tanaman, suhu udara, dan ph air.
+              Dapatkan tutorial baik video maupun artikel dari hyponic untuk membantu anda mendapatkan informasi mengenai tanaman hidroponik. Dengan adanya tutorial ini tentunya akan menambah ilmu mengenaik hidroponik.
             </p>
           </div>
           <div className={style.content_right}>
