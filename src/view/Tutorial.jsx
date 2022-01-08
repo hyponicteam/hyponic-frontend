@@ -95,7 +95,7 @@ function Tutorial() {
                 {Object.keys(videos).map((item, i) => (
                   <div className={style.article_card}>
                     <div className={style.header_card}>
-                      <iframe className={style.frame_yt} src={`https://www.youtube.com/embed/${videos[item].video_url.slice(33, 43)}?controls=0`}></iframe>
+                      <iframe className={style.frame_yt} src={`https://www.youtube.com/embed/${videos[item].video_url.slice(17, 28)}`} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="video"></iframe>
                     </div>
                     <div className={style.body_card_video}>
                       <div className={style.tag}>
