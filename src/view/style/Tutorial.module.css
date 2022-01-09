@@ -36,7 +36,7 @@
 
 .article_cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
   gap: 15px;
 }
 
